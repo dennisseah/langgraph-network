@@ -1,0 +1,56 @@
+[tool.poetry]
+name = "langgraph-network"
+version = "0.1.0"
+description = ""
+authors = ["Dennis Seah <dennis.seah@microsoft.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+langgraph = "^0.2.60"
+azure-identity = "^1.19.0"
+langchain-openai = "^0.2.14"
+python-dotenv = "^1.0.1"
+lagom = "^2.7.5"
+langchain-core = "^0.3.29"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.8.5"
+pyright = "^1.1.391"
+pre-commit = "^4.0.1"
+
+
+[tool.poetry.group.pytest.dependencies]
+pytest-cov = "^6.0.0"
+pytest-mock = "^3.14.0"
+pytest-asyncio = "^0.25.1"
+poetry-plugin-export = "^1.8.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+exclude = ["typings", ".venv"]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "TID"]
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+exclude = ["typings", ".venv", ".vscode", ".git"]
+
+[tool.coverage.run]
+omit = [
+    "*/__init__.py",
+    "langgraph_network/hosting.py",
+    "langgraph_network/protocols/*",
+    "langgraph_network/graph.py",
+    "langgraph_network/tools/*.py"
+]
+
