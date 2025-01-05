@@ -8,9 +8,6 @@ from langgraph.graph.state import CompiledStateGraph
 from langgraph.types import Command
 
 from langgraph_network.hosting import container
-from langgraph_network.protocols.i_azure_openai_service import (
-    IAzureOpenAIService,
-)
 from langgraph_network.tools.agents import (
     customer_agent,
     investment_account_agent,
@@ -31,7 +28,6 @@ def get_next_node(last_message: BaseMessage, goto: str):
 
 class Graph:
     def __init__(self):
-        self.llm_model = container[IAzureOpenAIService].get_model()
         self.graph = self.create_graph()
         self.logger = container[logging.Logger]
 
@@ -88,7 +84,7 @@ class Graph:
             ),
         )
 
-        # above a create 4 nodes and here we create the edge
+        # above a create 3 nodes and here we create the edge
         workflow.add_edge(START, CUSTOMER_AGENT)
         return workflow.compile()
 
