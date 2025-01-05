@@ -19,13 +19,11 @@ langchain-core = "^0.3.29"
 ruff = "^0.8.5"
 pyright = "^1.1.391"
 pre-commit = "^4.0.1"
-
-
-[tool.poetry.group.pytest.dependencies]
 pytest-cov = "^6.0.0"
 pytest-mock = "^3.14.0"
 pytest-asyncio = "^0.25.1"
 poetry-plugin-export = "^1.8.0"
+
 
 [build-system]
 requires = ["poetry-core"]
